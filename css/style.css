@@ -1,0 +1,52 @@
+:root{
+    --white: #f9f9f9;
+    --colors-one: #034732;
+    --colors-two: #008148;
+    --colors-three: #ACF39D;
+    --colors-four: #AC3931;
+
+    --text: 'Roboto', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--white);
+    font-family: var(--text);
+}
+
+h1{
+    font-size: 42px;
+}
+
+h2{
+    font-size: 28px;
+}
+
+h3{
+    font-size: 22px;
+}
+
+p, li, a, button{
+    font-size: 18px;
+}
+
+/* Header */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px;
+    background-color: var(--colors-four);
+}
+
+header h1{
+    color: white;
+}
+
+/* Block */
+
