@@ -18,5 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.generate-chiffre').addEventListener("click", () => {
         reschiffre.innerHTML = Math.floor(Math.random() * numberMax.value);
     })
+
+    
     
 })
