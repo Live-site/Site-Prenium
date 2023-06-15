@@ -1,84 +1,88 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 
-		<title>MeteoDay | To have a good day</title>
+    <title>MeteoDay | To have a good day</title>
 
-		<link rel="shortcut icon" href="img/bxs-wrench.svg" type="image/x-icon" />
-		<link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/bxs-wrench.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet" />
+  </head>
 
-	<body>
-		<header>
-			<h1>MeteoDay</h1>
+  <body>
+    <header>
+      <h1>WeatherDay</h1>
 
-			<div id="rechercher">
-				<input
-					type="text"
-					name=""
-					value=""
-					placeholder="Rentrer une ville"
-					id="city"
-				/>
-				<button>Chercher</button>
-			</div>
-		</header>
+      <div id="rechercher">
+        <input
+          type="text"
+          name=""
+          value=""
+          placeholder="Rentrer une ville"
+          id="city" />
+        <button>Chercher</button>
+      </div>
+    </header>
 
-		<p id="textVille"><span id="city">La ville</span></p>
+    <p id="textVille"><span id="city">La ville</span></p>
 
-		<div id="meteo">
-			<div id="blockone">
-				<div id="contentloc">
-					<img src="" id="wIconMain" alt="" />
-					<p id="tempMain"></p>
-					<img
-						id="fd"
-						src="https://cdn4.regie-agricole.com/ulf/CMS_Content/2/articles/837541/_himmel-wolken-regen-fenster-1000x562.jpg"
-						alt=""
-					/>
-				</div>
-			</div>
+    <div id="meteo">
+      <div id="blockone">
+        <div id="contentloc">
+          <img src="" id="wIconMain" alt="" />
+          <p id="tempMain">10°C</p>
+          <p id="date"></p>
+        </div>
+      </div>
 
-			<div id="blocktwo">
-				<div id="contenttempone">
-					<img src="" id="wIconOne" alt="" />
-					<p id="dateNow"></p>
-					<p>La température est de : <span id="tempOne"></span> °C</p>
-				</div>
+      <div id="blocktwo">
+        <div id="contenttempone">
+          <img src="" id="wIconOne" alt="" />
+          <div class="content">
+            <p id="dateNow"></p>
+            <p id="descriptionone"></p>
+          </div>
 
-				<div id="contenttemptwo">
-					<img src="" id="wIconTwo" alt="" />
-					<p id="dateTwo"></p>
+          <p><span id="tempOne"></span> °C</p>
+        </div>
 
-					<p>La température sera de : <span id="tempTwo"></span>°C</p>
-				</div>
+        <div id="contenttemptwo">
+          <img src="" id="wIconTwo" alt="" />
+          <div class="content">
+            <p id="dateTwo"></p>
+            <p id="descriptiontwo"></p>
+          </div>
 
-				<div id="contenttempthree">
-					<img src="" id="wIconThree" alt="" />
-					<p id="dateThree"></p>
+          <p><span id="tempTwo"></span>°C</p>
+        </div>
 
-					<p>La température sera de : <span id="tempThree"></span>°C</p>
-				</div>
+        <div id="contenttempthree">
+          <img src="" id="wIconThree" alt="" />
+          <div class="content">
+            <p id="dateThree"></p>
+            <p id="descriptionthree"></p>
+          </div>
 
-				<div id="contenttempfour">
-					<img src="" id="wIconFour" alt="" />
-					<p id="dateFour"></p>
+          <p><span id="tempThree"></span>°C</p>
+        </div>
 
-					<p>La température sera de : <span id="tempFour"></span>°C</p>
-				</div>
-			</div>
-		</div>
+        <div id="contenttempfour">
+          <img src="" id="wIconFour" alt="" />
+          <div class="content">
+            <p id="dateFour"></p>
+            <p id="descriptionfour"></p>
+          </div>
+          <p><span id="tempFour"></span>°C</p>
+        </div>
+      </div>
+    </div>
+  </body>
 
-		<p id="date"></p>
-	</body>
-
-	<script src="js/meteo.js" type="text/javascript"></script>
+  <script src="js/meteo.js" type="text/javascript"></script>
 </html>
