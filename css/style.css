@@ -1,119 +1,138 @@
 :root {
-	--colorgray: rgb(213, 214, 217);
-	--colorbeige: rgb(251, 239, 225);
-	--colorrose: rgb(251, 211, 197);
-	--colormarron: rgb(212, 182, 164);
-	--colortext: rgb(84, 73, 67);
+  --colorgray: rgb(213, 214, 217);
+  --colorbeige: rgb(251, 239, 225);
+  --colorrose: rgb(251, 211, 197);
+  --colormarron: rgb(212, 182, 164);
+  --colortext: rgb(84, 73, 67);
 
-	--roboto: "Roboto", sans-serif;
+  --roboto: "Roboto", sans-serif;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: var(--colorbeige);
-	font-family: var(--roboto);
+  background-color: rgb(226, 226, 226);
+  font-family: var(--roboto);
 }
 
-p,
-h1,
-h3,
-li,
-a,
-input,
-button {
-	color: var(--colortext);
-}
-
-p#textVille{
-	padding: 0px 100px;
-}
-
-img#wIconOne, img#wIconTwo, img#wIconThree, img#wIconFour, #wIconMain{
-	width: 30%;
+p#textVille {
+  padding: 0px 100px;
 }
 
 /* En-tête */
 
 header {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 
-	padding: 50px 100px;
+  padding: 50px 100px;
 }
 
 header input {
-	background: transparent;
-	border: none;
-	border-bottom: solid 1px black;
-	padding: 10px 20px;
-	outline: none;
-	margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: solid 1px black;
+  padding: 10px 20px;
+  outline: none;
+  margin-bottom: 20px;
 }
 
 header input::placeholder {
-	padding: 0px;
+  padding: 0px;
 }
 
 header button {
-	background: var(--colormarron);
-	padding: 10px 20px;
-	border: none;
+  background: var(--colormarron);
+  padding: 10px 20px;
+  border: none;
 }
 
 header nav ul li {
-	display: inline;
-	padding: 10px;
+  display: inline;
+  padding: 10px;
 }
 
 header nav ul li a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 /* Texte et barre de recherche */
 
-#meteo{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	justify-content: space-between;
-	align-items: flex-start;
-	padding: 50px 100px;
-	gap: 10px;
+#meteo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0px 100px 50px 100px;
+  gap: 10px;
 }
 
-#meteo #blockone #city{
-	font-size: 45px;
-	font-weight: 600;
+#city:not(input) {
+  font-size: 45px;
+  font-weight: 600;
 }
 
-#blockone #contentloc{
-	position: relative;
+#blockone #contentloc {
+  background-image: url("https://cdn4.regie-agricole.com/ulf/CMS_Content/2/articles/837541/_himmel-wolken-regen-fenster-1000x562.jpg");
+  background-size: 150%;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-#blockone #contentloc img#wIconMain{
-	width: 20%;
+#blockone #contentloc img#wIconMain {
+  width: 20%;
+  margin: 20px 0px 0px 20px;
 }
 
-#blockone #contentloc img{
-	width: 10px;
+#blockone #contentloc p#tempMain {
+  font-size: 48px;
+  margin: 10px 0px 0px 10px;
 }
 
-#blockone #contentloc img#fd{
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -2;
-	width: 100%;
+#blockone #contentloc p#date {
+  font-size: 21px;
+  margin: 10px 0px 0px 10px;
+  position: absolute;
+  bottom: 3%;
 }
 
-#contenttempone, #contenttemptwo, #contenttempthree, #contenttempfour{
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	border: solid 1px black;
-	margin: 0px 10px 10px 10px;
+/* BlockTwo */
+
+/* #contenttempone,
+#contenttemptwo,
+#contenttempthree,
+#contenttempfour {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0px 10px 10px 10px;
+  padding: 10px;
+  background: white;
+} */
+
+#blocktwo {
+  width: 100%;
+  align-items: stretch;
+}
+
+#blocktwo #contenttempone,
+#blocktwo #contenttemptwo,
+#blocktwo #contenttempthree,
+#blocktwo #contenttempfour {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  align-items: center;
+  gap: 10px;
+}
+
+img#wIconOne,
+img#wIconTwo,
+img#wIconThree,
+img#wIconFour {
+  width: 35%;
 }
