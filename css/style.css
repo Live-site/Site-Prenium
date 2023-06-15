@@ -1,52 +1,119 @@
-:root{
-    --white: #f9f9f9;
-    --colors-one: #034732;
-    --colors-two: #008148;
-    --colors-three: #ACF39D;
-    --colors-four: #AC3931;
+:root {
+	--colorgray: rgb(213, 214, 217);
+	--colorbeige: rgb(251, 239, 225);
+	--colorrose: rgb(251, 211, 197);
+	--colormarron: rgb(212, 182, 164);
+	--colortext: rgb(84, 73, 67);
 
-    --text: 'Roboto', sans-serif;
+	--roboto: "Roboto", sans-serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-body{
-    background-color: var(--white);
-    font-family: var(--text);
+body {
+	background-color: var(--colorbeige);
+	font-family: var(--roboto);
 }
 
-h1{
-    font-size: 42px;
+p,
+h1,
+h3,
+li,
+a,
+input,
+button {
+	color: var(--colortext);
 }
 
-h2{
-    font-size: 28px;
+p#textVille{
+	padding: 0px 100px;
 }
 
-h3{
-    font-size: 22px;
+img#wIconOne, img#wIconTwo, img#wIconThree, img#wIconFour, #wIconMain{
+	width: 30%;
 }
 
-p, li, a, button{
-    font-size: 18px;
+/* En-tête */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+
+	padding: 50px 100px;
 }
 
-/* Header */
-
-header{
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 30px;
-    background-color: var(--colors-four);
+header input {
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px black;
+	padding: 10px 20px;
+	outline: none;
+	margin-bottom: 20px;
 }
 
-header h1{
-    color: white;
+header input::placeholder {
+	padding: 0px;
 }
 
-/* Block */
+header button {
+	background: var(--colormarron);
+	padding: 10px 20px;
+	border: none;
+}
 
+header nav ul li {
+	display: inline;
+	padding: 10px;
+}
+
+header nav ul li a {
+	text-decoration: none;
+}
+
+/* Texte et barre de recherche */
+
+#meteo{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 50px 100px;
+	gap: 10px;
+}
+
+#meteo #blockone #city{
+	font-size: 45px;
+	font-weight: 600;
+}
+
+#blockone #contentloc{
+	position: relative;
+}
+
+#blockone #contentloc img#wIconMain{
+	width: 20%;
+}
+
+#blockone #contentloc img{
+	width: 10px;
+}
+
+#blockone #contentloc img#fd{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -2;
+	width: 100%;
+}
+
+#contenttempone, #contenttemptwo, #contenttempthree, #contenttempfour{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border: solid 1px black;
+	margin: 0px 10px 10px 10px;
+}

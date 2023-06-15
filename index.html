@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 
-		<title>ToolsSite | Accueil</title>
+		<title>MeteoDay | To have a good day</title>
 
 		<link rel="shortcut icon" href="img/bxs-wrench.svg" type="image/x-icon" />
 		<link rel="stylesheet" href="css/style.css" />
@@ -18,16 +18,67 @@
 
 	<body>
 		<header>
-			<h1>ToolsSite</h1>
+			<h1>MeteoDay</h1>
 
-			<nav>
-				<ul>
-					<li><a href="index.html">Accueil</a></li>
-                    <li><a href="menu/generator.html">Générateur</a></li>
-					<li><a href="menu/calculator.html">Calculatrice</a></li>
-					<li><a href="#">A propos</a></li>  
-				</ul>
-			</nav>
+			<div id="rechercher">
+				<input
+					type="text"
+					name=""
+					value=""
+					placeholder="Rentrer une ville"
+					id="city"
+				/>
+				<button>Chercher</button>
+			</div>
 		</header>
+
+		<p id="textVille"><span id="city">La ville</span></p>
+
+		<div id="meteo">
+			<div id="blockone">
+				<div id="contentloc">
+					<img src="" id="wIconMain" alt="" />
+					<p id="tempMain"></p>
+					<img
+						id="fd"
+						src="https://cdn4.regie-agricole.com/ulf/CMS_Content/2/articles/837541/_himmel-wolken-regen-fenster-1000x562.jpg"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div id="blocktwo">
+				<div id="contenttempone">
+					<img src="" id="wIconOne" alt="" />
+					<p id="dateNow"></p>
+					<p>La température est de : <span id="tempOne"></span> °C</p>
+				</div>
+
+				<div id="contenttemptwo">
+					<img src="" id="wIconTwo" alt="" />
+					<p id="dateTwo"></p>
+
+					<p>La température sera de : <span id="tempTwo"></span>°C</p>
+				</div>
+
+				<div id="contenttempthree">
+					<img src="" id="wIconThree" alt="" />
+					<p id="dateThree"></p>
+
+					<p>La température sera de : <span id="tempThree"></span>°C</p>
+				</div>
+
+				<div id="contenttempfour">
+					<img src="" id="wIconFour" alt="" />
+					<p id="dateFour"></p>
+
+					<p>La température sera de : <span id="tempFour"></span>°C</p>
+				</div>
+			</div>
+		</div>
+
+		<p id="date"></p>
 	</body>
+
+	<script src="js/meteo.js" type="text/javascript"></script>
 </html>
