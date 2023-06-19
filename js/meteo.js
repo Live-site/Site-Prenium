@@ -29,7 +29,7 @@ scrollClick.addEventListener("click", (e) => {
 // Scroll
 
 const city = document.querySelector("#city");
-const send = document.querySelector("button");
+const send = document.querySelector("img#send");
 const nameCity = document.querySelector("span#city");
 const tempCity = document.querySelector("span#temp");
 const wIconOne = document.querySelector("img#wIconOne");
@@ -63,107 +63,106 @@ function search() {
     return 0;
   }
 
-  send.addEventListener("click", () => {
-    let key = "63919cbe6d9f510827370eb193abd905";
-    let API = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&units=metric&lang=fr&appid=${key}`;
-    fetch(API)
-      .then((response) => response.json())
-      .then((data) => {
-        // Gestion des lists de l'API openweathermaP
+  let key = "63919cbe6d9f510827370eb193abd905";
+  let API = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&units=metric&lang=fr&appid=${key}`;
+  console.log(API);
+  fetch(API)
+    .then((response) => response.json())
+    .then((data) => {
+      // Gestion des lists de l'API openweathermaP
 
-        // Recupérer la température
+      // Recupérer la température
 
-        tempOne.innerHTML = data["list"][0]["main"]["temp"] + "°C";
-        tempTwo.innerHTML = data["list"][1]["main"]["temp"] + "°C";
-        tempThree.innerHTML = data["list"][2]["main"]["temp"] + "°C";
-        tempFour.innerHTML = data["list"][3]["main"]["temp"] + "°C";
+      tempOne.innerHTML = data["list"][0]["main"]["temp"] + "°C";
+      tempTwo.innerHTML = data["list"][1]["main"]["temp"] + "°C";
+      tempThree.innerHTML = data["list"][2]["main"]["temp"] + "°C";
+      tempFour.innerHTML = data["list"][3]["main"]["temp"] + "°C";
 
-        // Recupérer la date et l'heure
-        dateTextNow.innerHTML = dayOfWeek + " " + day + " " + month;
+      // Recupérer la date et l'heure
+      dateTextNow.innerHTML = dayOfWeek + " " + day + " " + month;
 
-        hoursTextNow.innerHTML = data["list"][0]["dt_txt"].slice(11, 16);
+      hoursTextNow.innerHTML = data["list"][0]["dt_txt"].slice(11, 16);
 
-        tempOne.innerHTML = data["list"][0]["main"]["temp"];
-        tempTwo.innerHTML = data["list"][1]["main"]["temp"];
-        tempThree.innerHTML = data["list"][2]["main"]["temp"];
-        tempFour.innerHTML = data["list"][3]["main"]["temp"];
+      tempOne.innerHTML = data["list"][0]["main"]["temp"];
+      tempTwo.innerHTML = data["list"][1]["main"]["temp"];
+      tempThree.innerHTML = data["list"][2]["main"]["temp"];
+      tempFour.innerHTML = data["list"][3]["main"]["temp"];
 
-        // Recupérer la date et l'heure
+      // Recupérer la date et l'heure
 
-        dateTextNow.innerHTML = data["list"][0]["dt_txt"].slice(0, 11);
+      dateTextNow.innerHTML = data["list"][0]["dt_txt"].slice(0, 11);
 
-        // Ensuite l'intégrer dans l'URL de l'icon
+      // Ensuite l'intégrer dans l'URL de l'icon
 
-        function srcImage(codeIcon) {
-          switch (codeIcon) {
-            case "01d":
-              return "../img/METEO/soleil.png";
+      function srcImage(codeIcon) {
+        switch (codeIcon) {
+          case "01d":
+            return "../img/METEO/soleil.png";
 
-            case "01n":
-              return "../img/METEO/soleil.png";
+          case "01n":
+            return "../img/METEO/soleil.png";
 
-            case "02d":
-              return "../img/METEO/soleil_nuage.png";
+          case "02d":
+            return "../img/METEO/soleil_nuage.png";
 
-            case "02n":
-              return "../img/METEO/soleil_nuage.png";
+          case "02n":
+            return "../img/METEO/soleil_nuage.png";
 
-            case "03d":
-              return "../img/METEO/nuage.png";
+          case "03d":
+            return "../img/METEO/nuage.png";
 
-            case "03n":
-              return "../img/METEO/nuage.png";
+          case "03n":
+            return "../img/METEO/nuage.png";
 
-            case "04d":
-              return "../img/METEO/nuage.png";
+          case "04d":
+            return "../img/METEO/nuage.png";
 
-            case "04n":
-              return "../img/METEO/nuage.png";
+          case "04n":
+            return "../img/METEO/nuage.png";
 
-            case "09d":
-              return "../img/METEO/nuage_pluie.png";
+          case "09d":
+            return "../img/METEO/nuage_pluie.png";
 
-            case "09n":
-              return "../img/METEO/nuage_pluie.png";
+          case "09n":
+            return "../img/METEO/nuage_pluie.png";
 
-            case "10d":
-              return "../img/METEO/nuage_pluie_soleil.png";
+          case "10d":
+            return "../img/METEO/nuage_pluie_soleil.png";
 
-            case "10n":
-              return "../img/METEO/nuage_pluie_soleil.png";
+          case "10n":
+            return "../img/METEO/nuage_pluie_soleil.png";
 
-            case "11d":
-              return "../img/METEO/nuage_eclair.png";
+          case "11d":
+            return "../img/METEO/nuage_eclair.png";
 
-            case "11n":
-              return "../img/METEO/nuage_eclair.png";
+          case "11n":
+            return "../img/METEO/nuage_eclair.png";
 
-            case "13d":
-              return "../img/METEO/flocon.png";
+          case "13d":
+            return "../img/METEO/flocon.png";
 
-            case "13n":
-              return "../img/METEO/flocon.png";
+          case "13n":
+            return "../img/METEO/flocon.png";
 
-            case "50d":
-              return "../img/METEO/brouillard.png";
+          case "50d":
+            return "../img/METEO/brouillard.png";
 
-            case "50n":
-              return "../img/METEO/brouillard.png";
-          }
+          case "50n":
+            return "../img/METEO/brouillard.png";
         }
+      }
 
-        wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
-        wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
-        wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
-        wIconFour.src = srcImage(data["list"][3]["weather"][0]["icon"]);
+      wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
+      wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
+      wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
+      wIconFour.src = srcImage(data["list"][3]["weather"][0]["icon"]);
 
-        // Apparition
+      // Apparition
 
-        nameCity.innerHTML = city.value;
-        descriptOne.innerHTML = data["list"][0]["weather"][0]["description"];
-        descriptTwo.innerHTML = data["list"][1]["weather"][0]["description"];
-        descriptThree.innerHTML = data["list"][2]["weather"][0]["description"];
-        descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
-      });
-  });
+      nameCity.innerHTML = city.value;
+      descriptOne.innerHTML = data["list"][0]["weather"][0]["description"];
+      descriptTwo.innerHTML = data["list"][1]["weather"][0]["description"];
+      descriptThree.innerHTML = data["list"][2]["weather"][0]["description"];
+      descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
+    }); 
 }
