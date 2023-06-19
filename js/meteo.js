@@ -1,6 +1,6 @@
 // Date
 
-const seeDate = document.querySelector("p#date");
+const seeDate = document.querySelector("p#dateNow");
 const today = Date.now();
 const date = new Date(today);
 const day = date.getDate();
@@ -18,18 +18,26 @@ seeDate.innerHTML = dayOfWeek + " " + day + " " + month;
 
 // Météo
 
+let box = document.querySelector("footer");
+let scrollClick = document.querySelector("#scroll");
+
+scrollClick.addEventListener("click", (e) => {
+	e.preventDefault();
+	box.scrollIntoView({ behavior: "smooth" });
+});
+
+// Scroll
+
 const city = document.querySelector("#city");
 const send = document.querySelector("button");
 const nameCity = document.querySelector("span#city");
 const tempCity = document.querySelector("span#temp");
 const wIconOne = document.querySelector("img#wIconOne");
-const wIconMain = document.querySelector("img#wIconMain");
 const wIconTwo = document.querySelector("img#wIconTwo");
 const wIconThree = document.querySelector("img#wIconThree");
 const wIconFour = document.querySelector("img#wIconFour");
 const cIconDisplay = document.querySelector("img#iconCo");
 const tempOne = document.querySelector("span#tempOne");
-const tempMain = document.querySelector("p#tempMain");
 const tempTwo = document.querySelector("span#tempTwo");
 const tempThree = document.querySelector("span#tempThree");
 const tempFour = document.querySelector("span#tempFour");
@@ -38,10 +46,40 @@ const descriptTwo = document.querySelector("p#descriptiontwo");
 const descriptThree = document.querySelector("p#descriptionthree");
 const descriptFour = document.querySelector("p#descriptionfour");
 const dateTextNow = document.querySelector("#dateNow");
-const dateTextTwo = document.querySelector("#dateTwo");
-const dateTextThree = document.querySelector("#dateThree");
-const dateTextFour = document.querySelector("#dateFour");
+const hoursTextNow = document.querySelector("p#hoursNow");
+const errorText = document.querySelector(".error");
 
+<<<<<<< HEAD
+
+function search() {
+
+	if (city.value == "") {
+		errorText.innerHTML = "Vous n'avez pas indiqué de ville.";
+		return 0;
+	}
+
+	let regex = /\d/;
+	console.log(regex.test(city.value))
+
+	if(regex.test(city.value)){
+		errorText.innerHTML = "Veuillez rentrer des lettres et non des chiffres.";
+		return 0;
+	}
+
+	let carac = "é"
+	if(clearTimeout.value == carac){
+		errorText.innerHTML = "Evitez de mettre des caractères spéciaux";
+		return 0;
+	}
+
+	let key = "63919cbe6d9f510827370eb193abd905";
+
+	let API = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city.value)}&units=metric&lang=fr&appid=${key}`;
+	fetch(API)
+		.then((response) => response.json())
+		.then((data) => {
+			// Gestion des lists de l'API openweathermaP
+=======
 let key = "63919cbe6d9f510827370eb193abd905";
 let API = `https://api.openweathermap.org/data/2.5/forecast?q=Paris&units=metric&lang=fr&appid=${key}`;
 
@@ -55,9 +93,21 @@ send.addEventListener("click", () => {
     .then((response) => response.json())
     .then((data) => {
       // Gestion des lists de l'API openweathermaP
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
 
       // Recupérer la température
 
+<<<<<<< HEAD
+			tempOne.innerHTML = data["list"][0]["main"]["temp"] + "°C";
+			tempTwo.innerHTML = data["list"][1]["main"]["temp"] + "°C";
+			tempThree.innerHTML = data["list"][2]["main"]["temp"] + "°C";
+			tempFour.innerHTML = data["list"][3]["main"]["temp"] + "°C";
+
+			// Recupérer la date et l'heure
+			dateTextNow.innerHTML = dayOfWeek + " " + day + " " + month;
+
+			hoursTextNow.innerHTML = data["list"][0]["dt_txt"].slice(11, 16);
+=======
       tempOne.innerHTML = data["list"][0]["main"]["temp"];
       tempMain.innerHTML = data["list"][0]["main"]["temp"];
       tempTwo.innerHTML = data["list"][1]["main"]["temp"];
@@ -70,6 +120,7 @@ send.addEventListener("click", () => {
       dateTextTwo.innerHTML = data["list"][1]["dt_txt"].slice(0, 11);
       dateTextThree.innerHTML = data["list"][2]["dt_txt"].slice(0, 11);
       dateTextFour.innerHTML = data["list"][3]["dt_txt"].slice(0, 11);
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
 
       // Ensuite l'intégrer dans l'URL de l'icon
 
@@ -131,6 +182,22 @@ send.addEventListener("click", () => {
         }
       }
 
+<<<<<<< HEAD
+			wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
+			wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
+			wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
+			wIconFour.src = srcImage(data["list"][3]["weather"][0]["icon"]);
+
+			// Apparition
+
+			nameCity.innerHTML = city.value;
+			descriptOne.innerHTML = data["list"][0]["weather"][0]["description"];
+			descriptTwo.innerHTML = data["list"][1]["weather"][0]["description"];
+			descriptThree.innerHTML = data["list"][2]["weather"][0]["description"];
+			descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
+		});
+}
+=======
       wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
       wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
       wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
@@ -145,3 +212,4 @@ send.addEventListener("click", () => {
       descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
     });
 });
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
