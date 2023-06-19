@@ -22,8 +22,8 @@ let box = document.querySelector("footer");
 let scrollClick = document.querySelector("#scroll");
 
 scrollClick.addEventListener("click", (e) => {
-	e.preventDefault();
-	box.scrollIntoView({ behavior: "smooth" });
+  e.preventDefault();
+  box.scrollIntoView({ behavior: "smooth" });
 });
 
 // Scroll
@@ -49,167 +49,121 @@ const dateTextNow = document.querySelector("#dateNow");
 const hoursTextNow = document.querySelector("p#hoursNow");
 const errorText = document.querySelector(".error");
 
-<<<<<<< HEAD
-
 function search() {
+  if (city.value == "") {
+    errorText.innerHTML = "Vous n'avez pas indiqué de ville.";
+    return 0;
+  }
 
-	if (city.value == "") {
-		errorText.innerHTML = "Vous n'avez pas indiqué de ville.";
-		return 0;
-	}
+  let regex = /\d/;
+  console.log(regex.test(city.value));
 
-	let regex = /\d/;
-	console.log(regex.test(city.value))
+  if (regex.test(city.value)) {
+    errorText.innerHTML = "Veuillez rentrer des lettres et non des chiffres.";
+    return 0;
+  }
 
-	if(regex.test(city.value)){
-		errorText.innerHTML = "Veuillez rentrer des lettres et non des chiffres.";
-		return 0;
-	}
+  send.addEventListener("click", () => {
+    let key = "63919cbe6d9f510827370eb193abd905";
+    let API = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&units=metric&lang=fr&appid=${key}`;
+    fetch(API)
+      .then((response) => response.json())
+      .then((data) => {
+        // Gestion des lists de l'API openweathermaP
 
-	let carac = "é"
-	if(clearTimeout.value == carac){
-		errorText.innerHTML = "Evitez de mettre des caractères spéciaux";
-		return 0;
-	}
+        // Recupérer la température
 
-	let key = "63919cbe6d9f510827370eb193abd905";
+        tempOne.innerHTML = data["list"][0]["main"]["temp"] + "°C";
+        tempTwo.innerHTML = data["list"][1]["main"]["temp"] + "°C";
+        tempThree.innerHTML = data["list"][2]["main"]["temp"] + "°C";
+        tempFour.innerHTML = data["list"][3]["main"]["temp"] + "°C";
 
-	let API = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city.value)}&units=metric&lang=fr&appid=${key}`;
-	fetch(API)
-		.then((response) => response.json())
-		.then((data) => {
-			// Gestion des lists de l'API openweathermaP
-=======
-let key = "63919cbe6d9f510827370eb193abd905";
-let API = `https://api.openweathermap.org/data/2.5/forecast?q=Paris&units=metric&lang=fr&appid=${key}`;
+        // Recupérer la date et l'heure
+        dateTextNow.innerHTML = dayOfWeek + " " + day + " " + month;
 
-fetch(API)
-  .then((response) => response.json())
-  .then((data) => console.log(data));
+        hoursTextNow.innerHTML = data["list"][0]["dt_txt"].slice(11, 16);
 
-send.addEventListener("click", () => {
-  let API = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&units=metric&lang=fr&appid=${key}`;
-  fetch(API)
-    .then((response) => response.json())
-    .then((data) => {
-      // Gestion des lists de l'API openweathermaP
->>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
+        tempOne.innerHTML = data["list"][0]["main"]["temp"];
+        tempTwo.innerHTML = data["list"][1]["main"]["temp"];
+        tempThree.innerHTML = data["list"][2]["main"]["temp"];
+        tempFour.innerHTML = data["list"][3]["main"]["temp"];
 
-      // Recupérer la température
+        // Recupérer la date et l'heure
 
-<<<<<<< HEAD
-			tempOne.innerHTML = data["list"][0]["main"]["temp"] + "°C";
-			tempTwo.innerHTML = data["list"][1]["main"]["temp"] + "°C";
-			tempThree.innerHTML = data["list"][2]["main"]["temp"] + "°C";
-			tempFour.innerHTML = data["list"][3]["main"]["temp"] + "°C";
+        dateTextNow.innerHTML = data["list"][0]["dt_txt"].slice(0, 11);
 
-			// Recupérer la date et l'heure
-			dateTextNow.innerHTML = dayOfWeek + " " + day + " " + month;
+        // Ensuite l'intégrer dans l'URL de l'icon
 
-			hoursTextNow.innerHTML = data["list"][0]["dt_txt"].slice(11, 16);
-=======
-      tempOne.innerHTML = data["list"][0]["main"]["temp"];
-      tempMain.innerHTML = data["list"][0]["main"]["temp"];
-      tempTwo.innerHTML = data["list"][1]["main"]["temp"];
-      tempThree.innerHTML = data["list"][2]["main"]["temp"];
-      tempFour.innerHTML = data["list"][3]["main"]["temp"];
+        function srcImage(codeIcon) {
+          switch (codeIcon) {
+            case "01d":
+              return "../img/METEO/soleil.png";
 
-      // Recupérer la date et l'heure
+            case "01n":
+              return "../img/METEO/soleil.png";
 
-      dateTextNow.innerHTML = data["list"][0]["dt_txt"].slice(0, 11);
-      dateTextTwo.innerHTML = data["list"][1]["dt_txt"].slice(0, 11);
-      dateTextThree.innerHTML = data["list"][2]["dt_txt"].slice(0, 11);
-      dateTextFour.innerHTML = data["list"][3]["dt_txt"].slice(0, 11);
->>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
+            case "02d":
+              return "../img/METEO/soleil_nuage.png";
 
-      // Ensuite l'intégrer dans l'URL de l'icon
+            case "02n":
+              return "../img/METEO/soleil_nuage.png";
 
-      function srcImage(codeIcon) {
-        switch (codeIcon) {
-          case "01d":
-            return "../img/METEO/soleil.png";
+            case "03d":
+              return "../img/METEO/nuage.png";
 
-          case "01n":
-            return "../img/METEO/soleil.png";
+            case "03n":
+              return "../img/METEO/nuage.png";
 
-          case "02d":
-            return "../img/METEO/soleil_nuage.png";
+            case "04d":
+              return "../img/METEO/nuage.png";
 
-          case "02n":
-            return "../img/METEO/soleil_nuage.png";
+            case "04n":
+              return "../img/METEO/nuage.png";
 
-          case "03d":
-            return "../img/METEO/nuage.png";
+            case "09d":
+              return "../img/METEO/nuage_pluie.png";
 
-          case "03n":
-            return "../img/METEO/nuage.png";
+            case "09n":
+              return "../img/METEO/nuage_pluie.png";
 
-          case "04d":
-            return "../img/METEO/nuage.png";
+            case "10d":
+              return "../img/METEO/nuage_pluie_soleil.png";
 
-          case "04n":
-            return "../img/METEO/nuage.png";
+            case "10n":
+              return "../img/METEO/nuage_pluie_soleil.png";
 
-          case "09d":
-            return "../img/METEO/nuage_pluie.png";
+            case "11d":
+              return "../img/METEO/nuage_eclair.png";
 
-          case "09n":
-            return "../img/METEO/nuage_pluie.png";
+            case "11n":
+              return "../img/METEO/nuage_eclair.png";
 
-          case "10d":
-            return "../img/METEO/nuage_pluie_soleil.png";
+            case "13d":
+              return "../img/METEO/flocon.png";
 
-          case "10n":
-            return "../img/METEO/nuage_pluie_soleil.png";
+            case "13n":
+              return "../img/METEO/flocon.png";
 
-          case "11d":
-            return "../img/METEO/nuage_eclair.png";
+            case "50d":
+              return "../img/METEO/brouillard.png";
 
-          case "11n":
-            return "../img/METEO/nuage_eclair.png";
-
-          case "13d":
-            return "../img/METEO/flocon.png";
-
-          case "13n":
-            return "../img/METEO/flocon.png";
-
-          case "50d":
-            return "../img/METEO/brouillard.png";
-
-          case "50n":
-            return "../img/METEO/brouillard.png";
+            case "50n":
+              return "../img/METEO/brouillard.png";
+          }
         }
-      }
 
-<<<<<<< HEAD
-			wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
-			wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
-			wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
-			wIconFour.src = srcImage(data["list"][3]["weather"][0]["icon"]);
+        wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
+        wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
+        wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
+        wIconFour.src = srcImage(data["list"][3]["weather"][0]["icon"]);
 
-			// Apparition
+        // Apparition
 
-			nameCity.innerHTML = city.value;
-			descriptOne.innerHTML = data["list"][0]["weather"][0]["description"];
-			descriptTwo.innerHTML = data["list"][1]["weather"][0]["description"];
-			descriptThree.innerHTML = data["list"][2]["weather"][0]["description"];
-			descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
-		});
+        nameCity.innerHTML = city.value;
+        descriptOne.innerHTML = data["list"][0]["weather"][0]["description"];
+        descriptTwo.innerHTML = data["list"][1]["weather"][0]["description"];
+        descriptThree.innerHTML = data["list"][2]["weather"][0]["description"];
+        descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
+      });
+  });
 }
-=======
-      wIconOne.src = srcImage(data["list"][0]["weather"][0]["icon"]);
-      wIconTwo.src = srcImage(data["list"][1]["weather"][0]["icon"]);
-      wIconThree.src = srcImage(data["list"][2]["weather"][0]["icon"]);
-      wIconFour.src = srcImage(data["list"][3]["weather"][0]["icon"]);
-      wIconMain.src = srcImage(data["list"][3]["weather"][0]["icon"]);
-      // Apparition
-
-      nameCity.innerHTML = city.value;
-      descriptOne.innerHTML = data["list"][0]["weather"][0]["description"];
-      descriptTwo.innerHTML = data["list"][1]["weather"][0]["description"];
-      descriptThree.innerHTML = data["list"][2]["weather"][0]["description"];
-      descriptFour.innerHTML = data["list"][3]["weather"][0]["description"];
-    });
-});
->>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
