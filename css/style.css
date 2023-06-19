@@ -15,41 +15,88 @@
 }
 
 body {
+<<<<<<< HEAD
+	background-color: rgb(234, 234, 234);
+	font-family: var(--roboto);
+}
+
+p#textVille {
+	text-align: center;
+	padding: 50px 100px 20px;
+	font-size: 24px;
+}
+
+p#dateNow,
+p#descriptionone {
+	text-align: center;
+	font-size: 16px;
+}
+
+p#hoursNow {
+	display: none;
+=======
   background-color: rgb(226, 226, 226);
   font-family: var(--roboto);
 }
 
 p#textVille {
   padding: 0px 100px;
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
 }
 
 /* En-tête */
 
 header {
+<<<<<<< HEAD
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+=======
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
 
   padding: 50px 100px;
 }
 
 header input {
+<<<<<<< HEAD
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px black;
+	padding: 10px 20px;
+	outline: none;
+	margin-bottom: 20px;
+	width: 500px;
+=======
   background: transparent;
   border: none;
   border-bottom: solid 1px black;
   padding: 10px 20px;
   outline: none;
   margin-bottom: 20px;
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
 }
 
 header input::placeholder {
   padding: 0px;
 }
 
+<<<<<<< HEAD
+header button img {
+	position: absolute;
+	right: 6%;
+	top: 7%;
+	background-color: transparent;
+	padding: 10px 20px;
+	border: none;
+=======
 header button {
   background: var(--colormarron);
   padding: 10px 20px;
   border: none;
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
 }
 
 header nav ul li {
@@ -61,8 +108,233 @@ header nav ul li a {
   text-decoration: none;
 }
 
-/* Texte et barre de recherche */
+/* prensetation */
 
+<<<<<<< HEAD
+.prensetation {
+	background-image: url(../img/ciel-au-dessus-nuages-fond-ecran-nuages-cinematographiques-2.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100%;
+	width: 100%;
+	text-align: right;
+	padding: 50px 100px;
+}
+
+.prensetation h2 {
+	font-size: 80px;
+	color: white;
+}
+
+.prensetation .content {
+	height: 350px;
+}
+
+.prensetation .content h3 {
+	font-size: 56px;
+	padding-top: 100px;
+	color: white;
+}
+
+.prensetation .content p {
+	color: white;
+	padding: 30px 0px;
+	font-size: 16px;
+}
+
+img.chevron {
+	width: 3%;
+}
+
+/* Meteo */
+
+#meteo {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	padding: 50px 100px;
+	text-align: center;
+}
+
+#meteo img {
+	width: 40%;
+}
+
+#contenttempone,
+#contenttemptwo,
+#contenttempthree,
+#contenttempfour {
+	height: 300px;
+	width: 100%;
+	padding: 20px;
+}
+
+#contenttempone .content #descriptionone,
+#contenttemptwo .content #descriptiontwo,
+#contenttempthree .content #descriptionthree,
+#contenttempfour .content #descriptionfour {
+	font-size: 24px;
+	padding: 20px 50px;
+}
+
+#contenttempone .content span#tempOne,
+#contenttemptwo .content span#tempTwo,
+#contenttempthree .content span#tempThree,
+#contenttempfour .content span#tempFour {
+	font-weight: 700;
+	font-size: 24px;
+}
+
+/* Footer */
+
+footer{
+	background-color: black;
+}
+
+footer .container{
+	padding: 50px 100px;
+	color: white;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	text-align: center;
+}
+
+footer h2 {
+	margin-top: 0;
+	margin-bottom: 12px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+footer ul {
+	padding: 0;
+	list-style: none;
+	line-height: 1.6;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+footer ul a {
+	color: inherit;
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+footer ul a:hover {
+	opacity: 1;
+}
+
+footer .item.social {
+	text-align: right;
+}
+
+footer .contentres ul li {
+	display: inline;
+}
+
+footer .contentres ul li a img {
+	width: 10%;
+}
+
+footer p#textFooter{
+	text-align: center;
+	color: white;
+}
+
+footer p#textFooter a{
+	color: white;
+}
+
+/* Mentions legales */
+
+.container-mention {
+	margin-top: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 20px;
+	width: 1400px;
+}
+
+.container-mention .content {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
+	align-items: center;
+	gap: 100px;
+}
+
+.container-mention h1 {
+	margin: 20px 0px 30px;
+	text-align: center;
+}
+
+.container-mention p.date {
+	position: absolute;
+	top: 10%;
+	text-align: center;
+}
+
+.container-mention p.description {
+	margin: 100px 0px;
+}
+
+.container-mention h2 {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.container-mention p:not(p.description) {
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+	width: 320px;
+}
+
+.editeur,
+.hebergeur,
+.site,
+.donnees,
+.cookie,
+.propriete {
+	width: 350px;
+}
+
+.editeur h2,
+.hebergeur h2,
+.site h2,
+.donnees h2,
+.cookie h2,
+.propriete h2 {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+p a.back-to-home {
+	text-decoration: none;
+	color: white;
+	background: black;
+	padding: 10px;
+}
+
+/*Media queries*/
+@media screen and (max-width: 320px) {
+	header{
+		display: block;
+	}
+
+	header input{
+		width: 100%;
+	}
+
+	#meteo{
+		display: grid;
+		width: 100%;
+		grid-template-rows: repeat(4, 1fr);
+		grid-template-columns: none;
+	}
+}
+=======
 #meteo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -136,3 +408,4 @@ img#wIconThree,
 img#wIconFour {
   width: 35%;
 }
+>>>>>>> c7e60dc447c173ab7baa2a22dbf8192d70d89575
